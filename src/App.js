@@ -3,11 +3,20 @@ import './App.css';
 import MyButton from './components/MyButton';
 import Menu from './components/Menu';
 import Counter from './components/Counter';
+import { useState } from 'react';
 
 function App() {
   function showAlert() {
     alert("I am an alert box!")
   }
+
+
+  const [conto, setConto] = useState(1)
+
+  function countIncrement(){
+      setConto(conto + 1)
+  }
+
 
   return (
     <div className="App">
@@ -29,8 +38,8 @@ function App() {
           ]
         } />
 
-        <Counter/>
-        <Counter/>
+        <Counter onClick={countIncrement} counter={conto}/>
+        <Counter onClick={countIncrement} counter={conto}/>
       </header>
     </div>
   );

@@ -1,21 +1,14 @@
-import { useState } from "react"
 
-function Counter() {
-
-    const [conto, setConto] = useState(1)
-
-
-    
-    function countIncrement(){
-        setConto(conto + 1)
-    }
-
+function Counter({
+    onClick ,
+    counter ,
+}) {
 
 
     return (
         <>
-            <h1>{conto}</h1>
-            <button onClick={countIncrement}>incrementa</button>
+            <h1>{counter}</h1>
+            <button onClick={onClick}>incrementa</button>
         </>
     )
 }
