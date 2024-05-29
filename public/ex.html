@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        // function showAgeAlert(birthYear, yearToCalculate) {
+
+        //     if (differenza(birthYear, yearToCalculate)) {
+        //         alert('')
+        //     } else {
+        //         alert('!')
+        //     }
+        // }
+
+
+        // Funzione che chiede l'anno di nascita
+        function askBirthYear() {
+            return prompt('Inserisci il tuo anno di nascita')
+        }
+
+        // Funzione che chiede l'anno in cui calcolare l'età
+        function askYearToCalculate() {
+            return prompt('Inserisci l anno in cui vuoi calcolare la tua età')
+        }
+
+        //calcolo tra i 2 parametri
+        function calculateAge(askBirthYear, askYearToCalculate) {
+            return askYearToCalculate - askBirthYear;
+        }
+
+        //funzione che restituisce l'anno corrente 
+        function getCurrentYear() {
+            return new Date().getFullYear()
+        }
+
+        // assegnazine del risultato della funzione
+        const ageCalculated = calculateAge(askBirthYear(), askYearToCalculate())
+
+        calculateAge(ageCalculated)
+    </script>
+</body>
+
+</html>
