@@ -6,6 +6,9 @@ import Counter from './components/Counter';
 import { useState } from 'react';
 
 function App() {
+
+  console.log("app rendered")
+
   function showAlert() {
     alert("I am an alert box!")
   }

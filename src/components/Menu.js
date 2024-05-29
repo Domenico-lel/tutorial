@@ -7,6 +7,8 @@ function Menu(
         items = []
     }
 ) {
+    console.log("menu rendered")
+
     return (
         <div>
 

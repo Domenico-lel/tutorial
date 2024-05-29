@@ -3,6 +3,7 @@ function Counter({
     onClick ,
     counter ,
 }) {
+    console.log("counter rendered")
 
 
     return (
