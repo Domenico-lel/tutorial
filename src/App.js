@@ -8,10 +8,16 @@ import { useState } from 'react';
 function App() {
 
   console.log("app rendered")
-
+  // main function
   function showAlert() {
     alert("I am an alert box!")
   }
+
+  function print(){
+    console.log(arguments)
+  }
+
+  print("hello", 400, false)
 
 
   const [conto, setConto] = useState(1)

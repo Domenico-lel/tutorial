@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function somma(num1, num2){
+            return (num1 + num2)
+        }
+
+        const risultato = somma(5, 3)
+        console.log(risultato)
+
+
+        //dichiarazione della settrazone tra 2 parametri 
+        function differenza(num1, num2){
+            return num1 - num2 
+        }
+        //assegnazione della settrazone tra 2 parametri 
+        const difResult = differenza(3, 2)
+        console.log(difResult)
+
+
+        // dichiarazione funzione per la maggiore eta'
+        function isAdult(age){ 
+            if (age >= 18) {
+                return true;
+            } 
+            else {
+                return false;
+            }
+        }
+
+
+        function isAdultV2(age){ 
+            return age >= 18
+        }
+        //assegno il risultato di una funzione a una costante 
+        const maggiorenne = isAdult(18)
+
+
+
+        //dichiarazione funzione 
+        function showAgeAlert(personAge) {
+            // ci avvaliamo della funzione isAdult per valutare
+            // la maggiore eta' e mostrare l'allert relativo 
+            if(isAdult(personAge)){
+                alert('sei maggiorenne!')
+            }else{
+                alert('sei minorenne!')
+            }
+        }
+        //chiamata della funzione 
+         //showAgeAlert(16)
+
+        //funzione che restituisce l'anno corrente 
+         function getCurrentYear(){
+            return new Date().getFullYear()
+         }
+
+         function askBirthYear(){
+            return prompt('inserisci il tuo anno di nascita')
+         }
+
+
+
+
+
+        //funzione che calcola l'eta' partendo dall'anno di nascita
+        function calculateAge(currentYear, birthYear){
+            return currentYear - birthYear
+        }
+        // assegnazine del risultato della funzione 
+        const ageCalculated = calculateAge(getCurrentYear(), askBirthYear())
+
+        showAgeAlert(ageCalculated)
+
+
+
+
+
+
+        const x = 0
+        
+    </script>
+</body>
+</html>
