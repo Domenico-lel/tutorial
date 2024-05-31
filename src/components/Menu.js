@@ -14,6 +14,7 @@ function Menu(
 
 
             {
+                //per ogni item all' interno di items ritorna un conponente myButton con label
                 items.map(
                     (item )=> {
                         // callback anonimous function (similar to renderItem)

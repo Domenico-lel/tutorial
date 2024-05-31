@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import CountersApp from './components/widgets/CountersApp';
-import TodoApp from './components/widgets/TodoApp';
+import TodoApp from './TodoApp';
 
 function App() {
 
