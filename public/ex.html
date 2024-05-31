@@ -38,21 +38,18 @@
             // variabile che conterra' l'eta' da calcolare 
             let calculatedAge
 
-            //chiede all'utente l'anno di nascita e lo assegna alla variabile birthYear
-            let birthYear = askBirthYear()
+            //nel caso in cui birthYear sia vuoto, richiede di nuovo l'inserimento
+            do{
+                birthYear = askBirthYear();
+            } while (birthYear == "" || birthYear == null)
 
-            //nel caso in cui birthYear e' ancora vuoto richiede di nuovo l'inserimento
-            if (birthYear == "") {
-                birthYear = askBirthYear()
-            }
 
             // chiede all'utente di inserire l'anno in cui vuole calcolare l'eta'
             let yearToCalculate = askYearToCalculate()
 
             // nel caso yearToCalculat e' vuoto lo valorizza con l'anno corrente 
-            if (yearToCalculate == "") {
+            if (yearToCalculate == "" || yearToCalculate == null) {
                 yearToCalculate = getCurrentYear()
-
             }
 
             //assegna calculateAge alla variabile calculatedAge
