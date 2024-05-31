@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.widget-app{
+  padding: 32px;
+  border-radius: 16px;
+  background: #3d3333;
+}
