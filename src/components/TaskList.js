@@ -12,10 +12,10 @@ function TaskList(
 
         (task) => {
           return (
-            <div>
-              
-              <h3>{task.title}</h3>
-              <input type="checkbox" checked={task.done}/>
+            <div className="task-list-flex">
+
+              <input type="checkbox" checked={task.done} />
+              <h3 className="black">{task.title}</h3>
 
             </div>
 
