@@ -1,3 +1,4 @@
+import NewTaskbar from "./components/NewTaskbar";
 import TaskList from "./components/TaskList";
 
 function TodoApp() {
@@ -26,6 +27,7 @@ function TodoApp() {
         <TaskList items={
             fakeItems
         } />
+        <NewTaskbar/>
     </div>
 }
 
