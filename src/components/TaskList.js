@@ -23,10 +23,12 @@ function TaskList(
 
         (task) => {
           return (
-            <div className="flex">
+            <div key={task.id} className="flex">
 
-              <input type="checkbox" checked={task.done} />
-              <h3 className="black">{task.title}</h3>
+              <input type="checkbox" /*checked={task.done}*/ />
+              <h3 style={{
+                textDecoration: task.done ? 'line-through' : 'none'
+              }} className="black">{task.title}</h3>
 
             </div>
 

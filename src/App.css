@@ -100,3 +100,8 @@ button:hover {
   box-shadow: 0 0 10px #a0f393;
   border: 2px solid #a0f393;
 }
+
+
+.outline{
+  text-decoration: line-through;
+}
