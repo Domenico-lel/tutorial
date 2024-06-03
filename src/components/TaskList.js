@@ -5,7 +5,18 @@ function TaskList(
   }
 ) {
 
+  console.log("items rendered " + items.length)
+
   return <div className="task-list">
+
+
+
+    {items.length === 0 &&
+      <p>Nessun Task...</p>
+
+
+    }
+
     {
       items.map(
 
