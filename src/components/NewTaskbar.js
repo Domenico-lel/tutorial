@@ -28,7 +28,7 @@ function NewTaskbar(
 
     <div className="flex">
       <input onChange={(e) => {
-        // 1) funzione anonima legata legata all'evento onCange
+        // 1) funzione anonima legata all'evento onCange
         console.log("l'input e' stato cambiato in " + e.target.value)
         handleInput(e.target.value)
       }
