@@ -51,8 +51,14 @@ function TaskList(
 
               }} type="checkbox" /*checked={e.target.input}*/ />
               <h3 style={{
-                textDecoration: task.done ? 'line-through' : 'none'
+                textDecoration: task.done ? 'line-through' : 'none',
+                color: 'red'
               }} className="black">{task.title}</h3>
+
+              <p>
+                la data e':  
+                {task.date}
+              </p>
 
             </div>
 

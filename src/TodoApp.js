@@ -4,15 +4,18 @@ import TaskList from "./components/TaskList";
 
 function TodoApp() {
 
+    // dati mokkati (mockup)
     const sample = [
         {
             id: "",
             title: "attivita' 1",
             done: true,
+            date: "01/02/2003",
         }, {
             id: "",
             title: "attivita' 2",
             done: false,
+            date: "01/02/2003",
         }
     ]
 
@@ -20,7 +23,7 @@ function TodoApp() {
 
     const [prova, setProva] = useState(0)
 
-    const handleEditedTask = (taskId, checkedStatus) =>{
+    const handleEditedTask = (taskId, checkedStatus) => {
 
         // mi faccio una copia di items che andro' a manipolare
         // (items e' in solo lettura, non posso modificarla se non con la funzione setItems)
@@ -40,14 +43,15 @@ function TodoApp() {
 
     }
 
-    const handleNewTask = (newTaskName) => {
+    const handleNewTask = (newTaskName, taskDate) => {
 
         var itemscopy = items.slice()
-        // instanzio un nuovo oggetto con il titolo corrispondente al newTaskName
+        // instanzio un nuovo oggetto con le proprieta' del nuovo task
         const newTask = {
             id: items.length + 1,
             title: newTaskName,
             done: false,
+            date: taskDate,
         }
         itemscopy.push(newTask);
         setItems(itemscopy)
@@ -60,7 +64,7 @@ function TodoApp() {
 
     if (items.length > 0) {
         console.log("il titolo del primo task e': " + items[0].title)
-        
+
     }
 
     return <div className="widget-app">
@@ -68,21 +72,21 @@ function TodoApp() {
         <button onClick={() => {
             setProva(prova + 1)
         }}>Force Refresh</button>
-        <TaskList
+        {<TaskList
             items={items}
             onTaskChanged={
-                (recivedTaskId, receivedStatus) =>{
+                (recivedTaskId, receivedStatus) => {
                     console.log("taskId e': " + recivedTaskId + ", checkedStatus e': " + receivedStatus)
                     handleEditedTask(recivedTaskId, receivedStatus)
                 }
 
             }
-        />
+        />}
         <NewTaskbar
             onNewTask={
-                (taskName) => {
-                    console.log(taskName)
-                    handleNewTask(taskName)
+                (taskName, taskDate) => {
+                    console.log("ricevuto nuovo task da NewTaskbar")
+                    handleNewTask(taskName, taskDate)
                 }
             }
         />
