@@ -12,6 +12,7 @@ function NewTaskbar(
   // setTaskName e' una funzione che serve per modificare taskName
   const [taskName, setTaskName] = useState("")
   const [inputValue, setInputDataValue] = useState("")
+  const [colorValue, setInputColor] = useState("")
 
   console.log("NewTaskBar rendered")
   // 2) handleInput prende in input il valore inserito dall'utente (inputString)
@@ -25,7 +26,12 @@ function NewTaskbar(
 
   const handleDate = (inputString) => {
 
-    setInputDataValue(inputString);
+    setInputDataValue(inputString)
+  }
+
+  const handleColor = (inputString) => {
+
+    setInputColor(inputString)
   }
 
   console.log("il valore di inputValue e'   : " + inputValue)
@@ -34,17 +40,7 @@ function NewTaskbar(
   return <div className="newtask-list">
     <h3 className="black">Add New Task</h3>
 
-    <div className="flex">
-
-      <input
-        onChange={(data) => {
-          handleDate(data.target.value)
-        }}
-        placeholder="inserisci la data"
-        className="gradient-input"
-        type="text"
-        value={inputValue}
-      />
+    <div className="flex_list">
 
       <input
         onChange={(e) => {
@@ -58,12 +54,43 @@ function NewTaskbar(
 
       </input>
 
+      <input
+        onChange={(data) => {
+          handleDate(data.target.value)
+        }}
+        placeholder="inserisci la data"
+        className="gradient-input secondary"
+        type="text"
+        value={inputValue}
+      />
+
+      <input 
+        onChange={(color) => {
+          handleColor(color.target.value)
+        }}
+        placeholder="inserisci il colore"
+        className="gradient-input secondary"
+        type="text"
+        value={colorValue}
+      />
+
+    <select
+    onChange={(color) =>{
+      handleColor(color.target.value)
+    }} className="habugher">
+        <option value="red">Rosso</option>
+        <option value="yellow">Giallo</option>
+        <option value="blue">Blu</option>
+        <option value="orange">Arancione</option>
+    </select>
+
+
       <button
         onClick={() => {
           //funzione anonima legata all'evento onClick del pulsante 
           if (taskName != "") {
             // Se il campo taskName non è vuoto chiama la funzione onNewTask
-            onNewTask(taskName, inputValue)
+            onNewTask(taskName, inputValue, colorValue)
           } else {
             // altrimenti stampa l'allert 
             alert("il campo e' vuoto")

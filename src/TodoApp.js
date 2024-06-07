@@ -43,7 +43,7 @@ function TodoApp() {
 
     }
 
-    const handleNewTask = (newTaskName, taskDate) => {
+    const handleNewTask = (newTaskName, taskDate, taskColor) => {
 
         var itemscopy = items.slice()
         // instanzio un nuovo oggetto con le proprieta' del nuovo task
@@ -52,6 +52,7 @@ function TodoApp() {
             title: newTaskName,
             done: false,
             date: taskDate,
+            color: taskColor
         }
         itemscopy.push(newTask);
         setItems(itemscopy)
@@ -84,9 +85,9 @@ function TodoApp() {
         />}
         <NewTaskbar
             onNewTask={
-                (taskName, taskDate) => {
+                (taskName, taskDate, taskColor) => {
                     console.log("ricevuto nuovo task da NewTaskbar")
-                    handleNewTask(taskName, taskDate)
+                    handleNewTask(taskName, taskDate, taskColor)
                 }
             }
         />
