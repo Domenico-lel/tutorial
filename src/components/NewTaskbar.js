@@ -19,8 +19,9 @@ function NewTaskbar(
   // utilizzo useState per memorizzare il nome del task
   // setTaskName e' una funzione che serve per modificare taskName
   const [taskName, setTaskName] = useState("")
-  const [inputValue, setInputDataValue] = useState("")
-  const [colorValue, setInputColor] = useState(colors[1])
+  const [date, setDate] = useState("")
+  // setColor imposta color in base al parametro  es: setColor("red") imposta red con il valore "red"
+  const [color, setColor] = useState(colors[1])
   const [manualColor, setManualColor] = useState("")
 
   console.log("NewTaskBar rendered")
@@ -28,28 +29,34 @@ function NewTaskbar(
   // e lo utilizza per settare taskName (attraverso la funzione setTaskName)
   // la modifca di taskName cambiera' lo stato del componente 
   // il cambiamento dello stato del componente causera' il re-rendering del componente
-  const handleInput = (inputString) => {
-
-    setTaskName(inputString)
+  const handleName = (inputName) => {
+    setTaskName(inputName)
   }
 
-  const handleDate = (inputString) => {
-
-    setInputDataValue(inputString)
+  const handleDate = (inputDate) => {
+    setDate(inputDate)
   }
 
-  const handleColor = (inputString) => {
-
-    setInputColor(inputString)
+  const handleColor = (inputColor) => {
+    setColor(inputColor)
+    setManualColor(inputColor)
   }
 
-  const handleManualcolor = (insertColor) => {
-    setManualColor(insertColor)
+  const handleManualcolor = (inputManualColor) => {
+    setManualColor(inputManualColor)
 
-    //se l'array colors contiene un elemento stringa = a insertColor allora setto colorValue con il valore di insertColor 
+    //se l'array colors contiene un elemento stringa = a insertColor allora setto color con il valore di inputManualColor 
+    if (colors.includes(inputManualColor)) {
+      setColor(inputManualColor)
+    }
+
   }
 
-  console.log("il valore di inputValue e'   : " + inputValue)
+  function isColorCorrect(){
+    return color == manualColor;
+  }
+
+  console.log("il valore di inputValue e'   : " + date)
 
 
   return <div className="newtask-list">
@@ -61,7 +68,7 @@ function NewTaskbar(
         onChange={(e) => {
           // 1) funzione anonima legata all'evento onCange
           console.log("l'input e' stato cambiato in " + e.target.value)
-          handleInput(e.target.value)
+          handleName(e.target.value)
         }}
         type="text"
         placeholder="Inserisci task qui"
@@ -76,13 +83,15 @@ function NewTaskbar(
         placeholder="inserisci la data"
         className="gradient-input secondary"
         type="text"
-        value={inputValue}
+        value={date}
       />
 
       <input
         onChange={(e) => {
           handleManualcolor(e.target.value)
         }}
+
+        style={{color: isColorCorrect() ? 'green' : 'red'}}
         placeholder="inserisci il colore"
         className="gradient-input secondary"
         type="text"
@@ -93,7 +102,7 @@ function NewTaskbar(
 
       {/* selettore dei colori */}
       <select
-        value={colorValue}
+        value={color}
         onChange={(color) => {
           handleColor(color.target.value)
         }} className="habugher">
@@ -119,7 +128,7 @@ function NewTaskbar(
           //funzione anonima legata all'evento onClick del pulsante 
           if (taskName != "") {
             // Se il campo taskName non è vuoto chiama la funzione onNewTask
-            onNewTask(taskName, inputValue, colorValue)
+            onNewTask(taskName, date, color)
           } else {
             // altrimenti stampa l'allert 
             alert("il campo e' vuoto")
