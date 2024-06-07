@@ -8,11 +8,20 @@ function NewTaskbar(
   }
 ) {
 
+  const colors = [
+    "blue",
+    "red",
+    "orange",
+    "brown",
+    "yellow"
+  ];
+
   // utilizzo useState per memorizzare il nome del task
   // setTaskName e' una funzione che serve per modificare taskName
   const [taskName, setTaskName] = useState("")
   const [inputValue, setInputDataValue] = useState("")
-  const [colorValue, setInputColor] = useState("")
+  const [colorValue, setInputColor] = useState(colors[1])
+  const [manualColor, setManualColor] = useState("")
 
   console.log("NewTaskBar rendered")
   // 2) handleInput prende in input il valore inserito dall'utente (inputString)
@@ -32,6 +41,12 @@ function NewTaskbar(
   const handleColor = (inputString) => {
 
     setInputColor(inputString)
+  }
+
+  const handleManualcolor = (insertColor) => {
+    setManualColor(insertColor)
+
+    //se l'array colors contiene un elemento stringa = a insertColor allora setto colorValue con il valore di insertColor 
   }
 
   console.log("il valore di inputValue e'   : " + inputValue)
@@ -64,25 +79,39 @@ function NewTaskbar(
         value={inputValue}
       />
 
-      <input 
-        onChange={(color) => {
-          handleColor(color.target.value)
+      <input
+        onChange={(e) => {
+          handleManualcolor(e.target.value)
         }}
         placeholder="inserisci il colore"
         className="gradient-input secondary"
         type="text"
-        value={colorValue}
+        value={manualColor}
       />
 
-    <select
-    onChange={(color) =>{
-      handleColor(color.target.value)
-    }} className="habugher">
-        <option value="red">Rosso</option>
-        <option value="yellow">Giallo</option>
-        <option value="blue">Blu</option>
-        <option value="orange">Arancione</option>
-    </select>
+
+
+      {/* selettore dei colori */}
+      <select
+        value={colorValue}
+        onChange={(color) => {
+          handleColor(color.target.value)
+        }} className="habugher">
+
+        {
+          colors.map(
+            (color) => {
+              return (
+                <option
+                  value={color}>
+                  {color}
+                </option>
+              )
+            }
+
+          )
+        }
+      </select>
 
 
       <button

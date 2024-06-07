@@ -25,6 +25,10 @@ function TaskList(
 
   console.log("items rendered " + items.length)
 
+  function isTaskDone(task){
+    return task.done
+  }
+
   return <div className="task-list">
 
 
@@ -43,7 +47,7 @@ function TaskList(
           return (
             <div key={task.id} className="flex">
 
-              <input onChange={(e) => {
+              <input checked={isTaskDone(task)} onChange={(e) => {
 
                 console.log("checkbox del task id: " + task.id + " corrente: " + e.target.checked)
 
@@ -51,11 +55,11 @@ function TaskList(
 
               }} type="checkbox" /*checked={e.target.input}*/ />
               <h3 style={{
-                textDecoration: task.done ? 'line-through' : 'none',
+                textDecoration: isTaskDone(task) ? 'line-through' : 'none',
                 color: task.color,
               }} className="black">{task.title}</h3>
 
-              <div style={{fontSize: 20}}>
+              <div style={{ fontSize: 20 }}>
                 {task.date ? (
                   <p>La data è: {task.date}</p>
                 ) : (

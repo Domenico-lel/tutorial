@@ -113,3 +113,8 @@ button:hover {
 .outline{
   text-decoration: line-through;
 }
+
+  
+table, th, td {
+  border:1px solid black;
+}

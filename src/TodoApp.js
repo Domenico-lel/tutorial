@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NewTaskbar from "./components/NewTaskbar";
 import TaskList from "./components/TaskList";
+import TaskTable from "./components/TaskTable";
 
 function TodoApp() {
 
@@ -73,7 +74,7 @@ function TodoApp() {
         <button onClick={() => {
             setProva(prova + 1)
         }}>Force Refresh</button>
-        {<TaskList
+        {/* <TaskList
             items={items}
             onTaskChanged={
                 (recivedTaskId, receivedStatus) => {
@@ -82,7 +83,18 @@ function TodoApp() {
                 }
 
             }
-        />}
+        /> */}
+
+        <TaskTable
+        items={items}
+        onTaskChanged={
+            (recivedTaskId, receivedStatus) => {
+                console.log("taskId e': " + recivedTaskId + ", checkedStatus e': " + receivedStatus)
+                handleEditedTask(recivedTaskId, receivedStatus)
+            }
+
+        }
+        />
         <NewTaskbar
             onNewTask={
                 (taskName, taskDate, taskColor) => {
