@@ -3,7 +3,7 @@ import PersonList from "./components/PersonList";
 
 function ListNameApp() {
   return (
-    <div>
+    <div className="widget-app">
       <PersonList />
       <NewPersonForm />
     </div>

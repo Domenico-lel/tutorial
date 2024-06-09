@@ -1,10 +1,15 @@
 function NewPersonForm() {
-    return (
+  return (
+    <div className=" newpersonform">
+      <h1>NewPersonForm</h1>
       <div>
-        <h1>sono NewPersonForm</h1>
+        <input placeholder="name" className="gradient-input"></input>
+        <input placeholder="surname" className="gradient-input"></input>
+        <input placeholder="date of birth" className="gradient-input"></input>
       </div>
-    );
-  }
-  
-  export default NewPersonForm;
-  
+      <button>SEND</button>
+    </div>
+  );
+}
+
+export default NewPersonForm;

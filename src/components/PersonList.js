@@ -1,10 +1,9 @@
 function PersonList() {
-    return (
-      <div>
-        <h1>sono PersonList</h1>
-      </div>
-    );
-  }
-  
-  export default PersonList;
-  
+  return (
+    <div className="task-list">
+      <h1>PersonList</h1>
+    </div>
+  );
+}
+
+export default PersonList;
