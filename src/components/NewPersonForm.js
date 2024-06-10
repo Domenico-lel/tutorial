@@ -11,6 +11,7 @@ function NewPersonForm(
     const [date, setDate] = useState("")
     const [gender, setGender] = useState("")
 
+    // Funzioni per gestire il cambiamento degli input
     const handleName = (inputName) => {
         setPersonName(inputName)
     }
@@ -23,6 +24,7 @@ function NewPersonForm(
         setDate(inputDate)
     }
 
+    // Funzione per pulire gli input del form
     const clearForm = () => {
         setPersonName("")
         setPersonSurname("")
@@ -34,10 +36,11 @@ function NewPersonForm(
 
     }
 
+    // Funzione per verificare se il form è valido
     const isFormValid = () => {
         return personName != "" && personSurame != "" && date != ""
     }
-    console.log("gender e':" +  gender)
+    console.log("gender e':" + gender)
     return <div className=" newpersonform">
         <h1>NewPersonForm</h1>
         <div>
@@ -69,13 +72,14 @@ function NewPersonForm(
             />
 
             <select
-                value={gender}
                 onChange={(e) => {
                     handleGender(e.target.value)
-                }} className="habugher">
-                    <option value="F">Femmina</option>
-                    <option value="M">Maschio</option>
-                    
+                }}
+                className="habugher"
+                value={gender}
+            >
+                <option value="F">Femmina</option>
+                <option value="M">Maschio</option>
             </select>
 
         </div>
@@ -87,7 +91,8 @@ function NewPersonForm(
                     const newPerson = {
                         name: personName,
                         surname: personSurame,
-                        date: date
+                        date: date,
+                        gender: gender
                     }
                     onNewPerson(newPerson)
                     clearForm()

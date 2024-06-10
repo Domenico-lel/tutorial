@@ -8,7 +8,7 @@ function ListNameApp() {
 
     const [items, setItems] = useState([])
 
-
+    // Funzione per gestire l'aggiunta di una nuova persona all'elenco
     const handleNewList = (newPersonToAdd) => {
 
         var itemscopy = items.slice()

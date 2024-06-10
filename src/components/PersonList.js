@@ -18,17 +18,11 @@ function PersonList(
 
   //funzione per ricavare la maggior eta' in base agli anni presi in input
   // e colorarli in base alla maggior eta' o meno
-
-  // dichiarazione funzione per la maggiore eta'
   function isAdult(age) {
     return age >= 18
   }
   //assegno il risultato di una funzione a una costante 
   const age = isAdult(18)
-
-
-
-  //stampare M o F prendendo i dati da un input e stamparli nella tabella.
 
 
   return <div className="task-list">
@@ -70,7 +64,7 @@ function PersonList(
                 <h3 style={{ color: isAdult(peopleAge) ? "green" : "red" }}>{peopleAge}</h3>
               </td>
               <td>
-                <h3>{people.gender}</h3>
+              <h3>{people.gender == "M" ? "Maschio" : "Femmina"}</h3>
               </td>
             </tr>
 
