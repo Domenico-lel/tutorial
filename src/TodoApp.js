@@ -86,14 +86,14 @@ function TodoApp() {
         /> */}
 
         <TaskTable
-        items={items}
-        onTaskChanged={
-            (recivedTaskId, receivedStatus) => {
-                console.log("taskId e': " + recivedTaskId + ", checkedStatus e': " + receivedStatus)
-                handleEditedTask(recivedTaskId, receivedStatus)
-            }
+            items={items}
+            onTaskChanged={
+                (recivedTaskId, receivedStatus) => {
+                    console.log("taskId e': " + recivedTaskId + ", checkedStatus e': " + receivedStatus)
+                    handleEditedTask(recivedTaskId, receivedStatus)
+                }
 
-        }
+            }
         />
         <NewTaskbar
             onNewTask={
