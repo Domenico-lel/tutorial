@@ -28,7 +28,7 @@ function PersonList(
 
 
 
-    //stampare M o F prendendo i dati da un input e stamparli nella tabella.
+  //stampare M o F prendendo i dati da un input e stamparli nella tabella.
 
 
   return <div className="task-list">
@@ -44,6 +44,7 @@ function PersonList(
         <td>Surname</td>
         <td>Year of birth</td>
         <td>Age</td>
+        <td>Gender</td>
       </tr>
 
       {
@@ -51,7 +52,7 @@ function PersonList(
           (people) => {
 
             const peopleAge = calculateAge(people.date)
-            
+
             return <tr key={people.id}>
               <td>
                 <h3>{people.id}</h3>
@@ -60,13 +61,16 @@ function PersonList(
                 <h3>{people.name}</h3>
               </td>
               <td>
-                <div>{people.surname}</div>
+                <h3>{people.surname}</h3>
               </td>
               <td>
-                <div>{people.date}</div>
+                <h3>{people.date}</h3>
               </td>
               <td>
-                <div style={{color: isAdult(peopleAge) ? "green" : "red"}}>{peopleAge}</div>
+                <h3 style={{ color: isAdult(peopleAge) ? "green" : "red" }}>{peopleAge}</h3>
+              </td>
+              <td>
+                <h3>{people.gender}</h3>
               </td>
             </tr>
 
