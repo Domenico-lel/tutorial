@@ -12,7 +12,7 @@ function ListNameApp() {
     const handleNewList = (newPersonToAdd) => {
 
         var itemscopy = items.slice()
-        
+
         newPersonToAdd.id = items.length + 1;
         itemscopy.push(newPersonToAdd);
         setItems(itemscopy)
@@ -20,7 +20,7 @@ function ListNameApp() {
 
     return <div className="widget-app">
 
-        <PersonList 
+        <PersonList
             persons={items}
 
         />

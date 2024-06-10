@@ -9,7 +9,7 @@ function NewPersonForm(
     const [personName, setPersonName] = useState("")
     const [personSurame, setPersonSurname] = useState("")
     const [date, setDate] = useState("")
-
+    const [gender, setGender] = useState("")
 
     const handleName = (inputName) => {
         setPersonName(inputName)
@@ -23,6 +23,21 @@ function NewPersonForm(
         setDate(inputDate)
     }
 
+    const clearForm = () => {
+        setPersonName("")
+        setPersonSurname("")
+        setDate("")
+    }
+
+    const handleGender = (inputGender) => {
+        setGender(inputGender)
+
+    }
+
+    const isFormValid = () => {
+        return personName != "" && personSurame != "" && date != ""
+    }
+    console.log("gender e':" +  gender)
     return <div className=" newpersonform">
         <h1>NewPersonForm</h1>
         <div>
@@ -36,8 +51,8 @@ function NewPersonForm(
             />
 
             <input
-                onChange={(surname) => {
-                    handleSurname(surname.target.value)
+                onChange={(e) => {
+                    handleSurname(e.target.value)
                 }}
                 placeholder="surname"
                 className="gradient-input"
@@ -45,25 +60,42 @@ function NewPersonForm(
             />
 
             <input
-                onChange={(date) => {
-                    handleDate(date.target.value)
+                onChange={(e) => {
+                    handleDate(e.target.value)
                 }}
                 placeholder="date of birth"
                 className="gradient-input"
                 value={date}
             />
 
+            <select
+                value={gender}
+                onChange={(e) => {
+                    handleGender(e.target.value)
+                }} className="habugher">
+                    <option value="F">Femmina</option>
+                    <option value="M">Maschio</option>
+                    
+            </select>
+
         </div>
         <button
             onClick={() => {
+                const condizione = isFormValid()
 
-                const newPerson = {
-                    name: personName,
-                    surname: personSurame,
-                    date: date
+                if (isFormValid()) {
+                    const newPerson = {
+                        name: personName,
+                        surname: personSurame,
+                        date: date
+                    }
+                    onNewPerson(newPerson)
+                    clearForm()
+                } else {
+                    alert("alcuni campi non sono stati inseriti")
                 }
 
-                onNewPerson(newPerson)
+
             }}
         >+</button>
     </div>
