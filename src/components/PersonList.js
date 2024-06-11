@@ -12,6 +12,21 @@ function PersonList(
     return getCurrentYear() - birthYear;
   }
 
+  function getGenderLabel(gender) {
+    switch (gender) {
+      case "F":
+        return "Femmina"
+      case "M":
+        return "Maschio"
+      case "T":
+        return "Trans"
+
+      default:
+        return "Non Disp"
+        break;
+    }
+  }
+
   function isListEmpty() {
     return persons.length == 0
   }
@@ -64,7 +79,7 @@ function PersonList(
                 <h3 style={{ color: isAdult(peopleAge) ? "green" : "red" }}>{peopleAge}</h3>
               </td>
               <td>
-              <h3>{people.gender == "M" ? "Maschio" : "Femmina"}</h3>
+                <h3>{getGenderLabel(people.gender)}</h3>
               </td>
             </tr>
 

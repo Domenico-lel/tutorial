@@ -78,8 +78,9 @@ function NewPersonForm(
                 className="habugher"
                 value={gender}
             >
-                <option value="F">Femmina</option>
                 <option value="M">Maschio</option>
+                <option value="F">Femmina</option>
+                <option value="T">Trans</option>
             </select>
 
         </div>
