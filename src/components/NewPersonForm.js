@@ -40,72 +40,89 @@ function NewPersonForm(
     const isFormValid = () => {
         return personName != "" && personSurame != "" && date != ""
     }
+
+
+
     console.log("gender e':" + gender)
-    return <div className=" newpersonform">
-        <h1>NewPersonForm</h1>
-        <div>
-            <input
-                onChange={(e) => {
-                    handleName(e.target.value)
-                }}
-                placeholder="name"
-                className="gradient-input"
-                value={personName}
-            />
+    return <>
+        <div className="card dark-card p-3">
+            <div className="row g-3">
+                <div className="col-md-6">
+                    <label htmlFor="inputName" className="form-label">Nome</label>
+                    <input onChange={(e) => {
+                        handleName(e.target.value)
+                    }}
+                        type="text"
+                        className="form-control"
+                        id="inputName"
+                        value={personName}
+                    />
+                </div>
+                <div className="col-md-6">
+                    <label htmlFor="inputSurname" className="form-label">Cognome</label>
+                    <input onChange={(e) => {
+                        handleSurname(e.target.value)
+                    }}
+                        type="text"
+                        className="form-control"
+                        id="inputSurname"
+                        value={personSurame}
+                    />
+                </div>
+                <div className="col-md-4">
+                    <label htmlFor="inputGender" className="form-label">Gender</label>
+                    <select onChange={(e) => {
+                        handleGender(e.target.value)
+                    }}
+                        id="inputGender"
+                        className="form-select"
+                        defaultValue="Default"
+                    >
+                        <option value="Default">Choose...</option>
+                        <option value="M">Maschio</option>
+                        <option value="F">Femmina</option>
+                        <option value="T">Trans</option>
+                        <option value="NB">Non Binario</option>
+                    </select>
+                </div>
+                <div className="col-md-2">
+                    <label htmlFor="inputData" className="form-label">Anno</label>
+                    <input onChange={(e) => {
+                        handleDate(e.target.value)
+                    }}
+                        type="text"
+                        className="form-control"
+                        id="inputData"
+                        value={date}
+                    />
+                </div>
+                <div className="col-12">
+                    <button className="btn btn-primary"
+                        onClick={() => {
+                            const condizione = isFormValid()
 
-            <input
-                onChange={(e) => {
-                    handleSurname(e.target.value)
-                }}
-                placeholder="surname"
-                className="gradient-input"
-                value={personSurame}
-            />
+                            if (isFormValid()) {
+                                const newPerson = {
+                                    name: personName,
+                                    surname: personSurame,
+                                    date: date,
+                                    gender: gender
+                                }
+                                onNewPerson(newPerson)
+                                clearForm()
+                            } else {
+                                alert("alcuni campi non sono stati inseriti")
+                            }
 
-            <input
-                onChange={(e) => {
-                    handleDate(e.target.value)
-                }}
-                placeholder="date of birth"
-                className="gradient-input"
-                value={date}
-            />
 
-            <select
-                onChange={(e) => {
-                    handleGender(e.target.value)
-                }}
-                className="habugher"
-                value={gender}
-            >
-                <option value="M">Maschio</option>
-                <option value="F">Femmina</option>
-                <option value="T">Trans</option>
-            </select>
-
+                        }}
+                    >Aggiungi</button>
+                </div>
+            </div>
         </div>
-        <button
-            onClick={() => {
-                const condizione = isFormValid()
-
-                if (isFormValid()) {
-                    const newPerson = {
-                        name: personName,
-                        surname: personSurame,
-                        date: date,
-                        gender: gender
-                    }
-                    onNewPerson(newPerson)
-                    clearForm()
-                } else {
-                    alert("alcuni campi non sono stati inseriti")
-                }
 
 
-            }}
-        >+</button>
-    </div>
-
+    </>
 }
 
 export default NewPersonForm;

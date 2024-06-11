@@ -20,6 +20,8 @@ function PersonList(
         return "Maschio"
       case "T":
         return "Trans"
+      case "NB":
+        return "Non Binario"
 
       default:
         return "Non Disp"
@@ -40,7 +42,7 @@ function PersonList(
   const age = isAdult(18)
 
 
-  return <div className="task-list">
+  return <div className="">
     {isListEmpty() &&
       <p>Nessun utente aggiunto...</p>
     }

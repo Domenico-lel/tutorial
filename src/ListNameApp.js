@@ -1,12 +1,28 @@
 import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
-import PersonList from "./components/PersonList";
+import PersonCardGroup from "./components/PersonCardGroup";
 
 
 
 function ListNameApp() {
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([
+
+        {
+            id: "1",
+            name: "Domenico",
+            surname: "Lella",
+            date: "2003",
+            gender: "M"
+        },
+        {
+            id: "2",
+            name: "Giuseppe",
+            surname: "Rossi",
+            date: "2010",
+            gender: "F"
+        }
+    ])
 
     // Funzione per gestire l'aggiunta di una nuova persona all'elenco
     const handleNewList = (newPersonToAdd) => {
@@ -18,10 +34,20 @@ function ListNameApp() {
         setItems(itemscopy)
     }
 
-    return <div className="widget-app">
+    const handleDelete = (peopleIdToRemove) =>{
+        var itemscopy = items.slice()
+        const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
+        itemscopy.splice(index, 1)
+        setItems(itemscopy)
+    }
 
-        <PersonList
+    return <div className="p-4">
+
+        <PersonCardGroup
             persons={items}
+            onPersonDelete={
+                (peopleId) => handleDelete(peopleId)
+            }
 
         />
         <NewPersonForm

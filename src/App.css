@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -8,14 +8,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -95,22 +92,6 @@
 .secondary {
   width: 50%;
   font-size: 0.8em;
-}
-
-
-/* style button */
-button {
-  height: 56px;
-  width: 140PX;
-  border-radius: 5px;
-  background-color: transparent;
-  color: aliceblue;
-  margin-bottom: 9PX;
-}
-
-button:hover {
-  box-shadow: 0 0 10px rgb(56, 2, 117);
-  border: 2px solid rgb(56, 2, 117);
 }
 
 
