@@ -13,14 +13,16 @@ function ListNameApp() {
             name: "Domenico",
             surname: "Lella",
             date: "2003",
-            gender: "M"
+            gender: "M",
+            userName: "Domenico_lel"
         },
         {
             id: "2",
             name: "Giuseppe",
             surname: "Rossi",
             date: "2010",
-            gender: "F"
+            gender: "F",
+            userName: "GiuseppeRossi98"
         }
     ])
 

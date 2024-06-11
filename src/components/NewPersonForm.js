@@ -10,6 +10,7 @@ function NewPersonForm(
     const [personSurame, setPersonSurname] = useState("")
     const [date, setDate] = useState("")
     const [gender, setGender] = useState("")
+    const [userName, setUserName] = useState("")
 
     // Funzioni per gestire il cambiamento degli input
     const handleName = (inputName) => {
@@ -29,6 +30,8 @@ function NewPersonForm(
         setPersonName("")
         setPersonSurname("")
         setDate("")
+        setGender("Default")
+        setUserName("")
     }
 
     const handleGender = (inputGender) => {
@@ -36,6 +39,9 @@ function NewPersonForm(
 
     }
 
+    const handleUserName = (inputUserName) => {
+        setUserName(inputUserName)
+    }
     // Funzione per verificare se il form è valido
     const isFormValid = () => {
         return personName != "" && personSurame != "" && date != ""
@@ -76,7 +82,7 @@ function NewPersonForm(
                     }}
                         id="inputGender"
                         className="form-select"
-                        defaultValue="Default"
+                        value={gender}
                     >
                         <option value="Default">Choose...</option>
                         <option value="M">Maschio</option>
@@ -95,6 +101,16 @@ function NewPersonForm(
                         id="inputData"
                         value={date}
                     />
+                </div><div className="col-md-2">
+                    <label htmlFor="inputUsername" className="form-label">User Name</label>
+                    <input onChange={(e) => {
+                        handleUserName(e.target.value)
+                    }}
+                        type="text"
+                        className="form-control"
+                        id="inputUsername"
+                        value={userName}
+                    />
                 </div>
                 <div className="col-12">
                     <button className="btn btn-primary"
@@ -106,7 +122,8 @@ function NewPersonForm(
                                     name: personName,
                                     surname: personSurame,
                                     date: date,
-                                    gender: gender
+                                    gender: gender,
+                                    userName: userName
                                 }
                                 onNewPerson(newPerson)
                                 clearForm()

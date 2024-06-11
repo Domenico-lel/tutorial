@@ -23,7 +23,7 @@ function PersonCardGroup(
         return "Trans"
       case "NB":
         return "Non Binario"
-
+        
       default:
         return "Non Disp"
         break;
@@ -32,7 +32,7 @@ function PersonCardGroup(
 
   function isListEmpty() {
     return persons.length == 0
-  } 
+  }
 
   const handleDelete = (peopleId) => {
     console.log("richiesta di cancellazione persona con id:" + peopleId)
@@ -53,10 +53,6 @@ function PersonCardGroup(
       <p>Nessun utente aggiunto...</p>
     }
 
-
-
-
-
     {
       persons.map(
         (people) => {
@@ -72,10 +68,11 @@ function PersonCardGroup(
                 <h5 className="card-title">{people.name} {people.surname}</h5>
                 <p style={{ color: isAdult(peopleAge) ? "green" : "red" }}>{peopleAge}</p>
                 <p className="card-text">{getGenderLabel(people.gender)}</p>
-                <button 
-                type="button" 
-                className="btn btn-danger btn-sm"
-                onClick={() => handleDelete(people.id)}
+                <p className="card-text">@{people.userName}</p>
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDelete(people.id)}
                 >Delete</button>
               </div>
               <div className="card-footer">
@@ -83,13 +80,9 @@ function PersonCardGroup(
               </div>
             </div>
           </div>
-
-
         }
-
       )
     }
-
   </div>
 }
 
