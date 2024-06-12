@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
 import PersonCardGroup from "./components/PersonCardGroup";
+import SearchBar from "./components/SearchBar";
 
 
 
@@ -36,7 +37,11 @@ function ListNameApp() {
         setItems(itemscopy)
     }
 
-    const handleDelete = (peopleIdToRemove) =>{
+    const handleFilterPerson = (searchWords) => {
+        
+    }
+
+    const handleDelete = (peopleIdToRemove) => {
         var itemscopy = items.slice()
         const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
         itemscopy.splice(index, 1)
@@ -44,6 +49,20 @@ function ListNameApp() {
     }
 
     return <div className="p-4">
+        <div className="row">
+            <div className="col-8">
+                {items.length} persone
+            </div>
+            <div className="col-4">
+                <SearchBar 
+                    onNewSearch={
+                        (searchWords) => {
+                            console.log("searcInput viene stampato: " + searchWords)
+                        }
+                    }
+                />
+            </div>
+        </div>
 
         <PersonCardGroup
             persons={items}
