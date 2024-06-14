@@ -1,0 +1,68 @@
+<script>
+
+    const cars = [
+        {
+            model: "punto",
+            power: 70,
+            weight: 1100,
+            km: 200000,
+            year: 2007,
+            proprietari: 6
+        },
+        {
+            model: "ferrari",
+            power: 350,
+            weight: 1500,
+            km: 50000,
+            year: 2019,
+            proprietari: 2
+        },
+        {
+            model: "ducato",
+            power: 120,
+            weight: 2000,
+            km: 300000,
+            year: 2010,
+            proprietari: 8
+        }
+    ]
+
+    const limiteNeoP = 75; // cv / 1000kg rapporto peso potenza
+
+    //filtro tutte le macchne con potenza superiore a 100cv
+    const traccia1 = cars.filter((car) => car.power > 100)
+
+    //filtrare tutte le auto che hanno il rapporto peso/potenza inferiore a 75cv
+    const traccia2 = cars.filter((car) => (car.power / car.weight) < 75 / 1000)
+
+    //potenza > 100cv prodotte dal 2010 in poi
+    const traccia3 = cars.filter((car) => car.power > 100 & car.year >= 2010)
+
+    //filtro tutte le auto che hanno il rapporto peso/potenza < 75 e potenza inferiore a 95cv
+    const traccia4 = cars.filter((car) => (car.power / car.weight) < 75 / 1000 & car.power < 95)
+
+    //filtro tutte le auto che hanno percorso mediamente piu' di 20000km all'anno 
+    const traccia5 = cars.filter((car) => (car.km / (2024 - car.year)) > 20000)
+
+    // tutte le auto che hanno una potenza sueriore a 200cv o che pesano meno di 1500kg
+    const traccia6 = cars.filter((car) => car.power > 200 || car.weight < 1500)
+
+    //tutte le auto che sono comprese tra il 2015 e 2020
+    const traccia7 = cars.filter((car) => car.year >= 2015 & car.year <= 2020)
+
+    // filtro di tutte le auto che hanno 100cv o piu', e che non superino i 50.000km
+    const traccia8 = cars.filter((car) => car.power >= 100 & car.km <= 50000)
+
+    // filtro tutte le auto con l'annata 2020 in poi o che il nome del veicolo termini con "o"
+    const traccia9 = cars.filter((car) => car.year >= 2020 || car.model.endsWith("o"));
+
+    //filtro per proprietri <= 5 e che abbiano - di 60k km
+    const traccia10 = cars.filter((car) => car.proprietari <= 5 & car.km < 60000)
+
+
+
+
+
+    console.log("result: " + JSON.stringify(traccia10))
+
+</script>
