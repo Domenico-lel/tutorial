@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
-import PersonCardGroup from "./components/PersonCardGroup";
 import SearchBar from "./components/SearchBar";
+import PersonListAdvanced from "./components/PersonListAdvanced";
 
 
 
@@ -27,6 +27,10 @@ function ListNameApp() {
         }
     ])
 
+    const [displayItems, setDisplayItems] = useState(items)
+
+
+
     // Funzione per gestire l'aggiunta di una nuova persona all'elenco
     const handleNewList = (newPersonToAdd) => {
 
@@ -37,16 +41,32 @@ function ListNameApp() {
         setItems(itemscopy)
     }
 
-    const handleFilterPerson = (searchWords) => {
-        
+    function isPeopleMatched(item, searchWords) {
+        return item.name.toLocaleLowerCase().includes(searchWords.toLocaleLowerCase()) ||
+            item.surname.toLocaleLowerCase().includes(searchWords.toLocaleLowerCase())
     }
 
+    // controllo dell'input sul nome o cognome 
+    const handleFilterPerson = (searchWords) => {
+        const trimSearchWords = searchWords.trim()
+
+        if (trimSearchWords == "") {
+            setDisplayItems(items)
+        } else {
+            const filteredItems = items.filter((item) => isPeopleMatched(item, trimSearchWords))
+
+            setDisplayItems(filteredItems)
+        }
+    }
+
+    // funzione per gestire la rimozione di una persona
     const handleDelete = (peopleIdToRemove) => {
         var itemscopy = items.slice()
         const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
         itemscopy.splice(index, 1)
         setItems(itemscopy)
-    }
+    } 
+    console.log("elenco persone in memoria: " + JSON.stringify(items))
 
     return <div className="p-4">
         <div className="row">
@@ -54,9 +74,10 @@ function ListNameApp() {
                 {items.length} persone
             </div>
             <div className="col-4">
-                <SearchBar 
+                <SearchBar
                     onNewSearch={
                         (searchWords) => {
+                            handleFilterPerson(searchWords)
                             console.log("searcInput viene stampato: " + searchWords)
                         }
                     }
@@ -64,10 +85,12 @@ function ListNameApp() {
             </div>
         </div>
 
-        <PersonCardGroup
-            persons={items}
+        <PersonListAdvanced
+            persons={displayItems}
             onPersonDelete={
-                (peopleId) => handleDelete(peopleId)
+                (peopleId) => {
+                    handleDelete(peopleId)
+                }
             }
 
         />

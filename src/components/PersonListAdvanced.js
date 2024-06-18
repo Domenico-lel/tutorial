@@ -1,4 +1,4 @@
-function PersonCardGroup(
+function PersonListAdvanced(
   {
     persons = [],
     onPersonDelete = () => { }
@@ -86,4 +86,4 @@ function PersonCardGroup(
   </div>
 }
 
-export default PersonCardGroup;
+export default PersonListAdvanced;

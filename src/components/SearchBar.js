@@ -15,9 +15,9 @@ function SearchBar(
   }
 
   return (
-    <div class="d-flex" role="search">
+    <div className="d-flex" role="search">
         <input 
-        class="form-control me-2" 
+        className="form-control me-2" 
         type="search" 
         placeholder="Search" 
         value={searchInput}
@@ -30,7 +30,7 @@ function SearchBar(
          onClick={() => {
           onNewSearch(searchInput)
          }}
-        class="btn btn-outline-success" 
+        className="btn btn-outline-success" 
         type="submit"
         >Search</button>
       </div>

@@ -59,10 +59,13 @@
     //filtro per proprietri <= 5 e che abbiano - di 60k km
     const traccia10 = cars.filter((car) => car.proprietari <= 5 & car.km < 60000)
 
+    //controllo input sul nome o cognome 
+    const traccia11 = cars.filter((car) => car.model.includes("d"))
 
 
 
 
-    console.log("result: " + JSON.stringify(traccia10))
+
+    console.log("result: " + JSON.stringify(traccia11))
 
 </script>
