@@ -77,6 +77,7 @@ function ListNameApp() {
         const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
         itemscopy.splice(index, 1)
         setItems(itemscopy)
+        setDisplayItems(itemscopy)
     }
     console.log("elenco persone in memoria: " + JSON.stringify(items))
 
