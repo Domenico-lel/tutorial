@@ -2,7 +2,8 @@ import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
 import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
-import Bigger from "./components/Bigger";
+import Bigger from "./components/PeopleStats";
+import PeopleStats from "./components/PeopleStats";
 
 
 
@@ -31,7 +32,7 @@ function ListNameApp() {
             name: "Giovanna",
             surname: "Verdi",
             date: "1986",
-            gender: "F",
+            gender: "T",
             userName: "GiovannaVerdi98"
         }
     ])
@@ -115,7 +116,7 @@ function ListNameApp() {
             }
         />
 
-        <Bigger
+        <PeopleStats
             persons={items}
         />
     </div>
