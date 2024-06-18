@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
 import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
+import Bigger from "./components/Bigger";
 
 
 
@@ -24,6 +25,14 @@ function ListNameApp() {
             date: "2010",
             gender: "F",
             userName: "GiuseppeRossi98"
+        },
+        {
+            id: "3",
+            name: "Giovanna",
+            surname: "Verdi",
+            date: "1986",
+            gender: "F",
+            userName: "GiovannaVerdi98"
         }
     ])
 
@@ -36,9 +45,12 @@ function ListNameApp() {
 
         var itemscopy = items.slice()
 
+        // assegno l'id alla nuova persona che andrò ad aggiungere
         newPersonToAdd.id = items.length + 1;
+        // aggiunge la nuova persona all' array 
         itemscopy.push(newPersonToAdd);
         setItems(itemscopy)
+        setDisplayItems(itemscopy)
     }
 
     function isPeopleMatched(item, searchWords) {
@@ -65,7 +77,7 @@ function ListNameApp() {
         const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
         itemscopy.splice(index, 1)
         setItems(itemscopy)
-    } 
+    }
     console.log("elenco persone in memoria: " + JSON.stringify(items))
 
     return <div className="p-4">
@@ -100,6 +112,10 @@ function ListNameApp() {
                     handleNewList(newPerson)
                 }
             }
+        />
+
+        <Bigger
+            persons={items}
         />
     </div>
 
