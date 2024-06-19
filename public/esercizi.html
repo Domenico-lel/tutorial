@@ -7,7 +7,8 @@
             weight: 1100,
             km: 200000,
             year: 2007,
-            proprietari: 6
+            proprietari: 6,
+            porte: 5
         },
         {
             model: "ferrari",
@@ -15,7 +16,8 @@
             weight: 1500,
             km: 50000,
             year: 2019,
-            proprietari: 2
+            proprietari: 2,
+            porte: 3
         },
         {
             model: "ducato",
@@ -23,7 +25,8 @@
             weight: 2000,
             km: 300000,
             year: 2010,
-            proprietari: 8
+            proprietari: 8,
+            porte: 4
         }
     ]
 
@@ -62,10 +65,12 @@
     //controllo input sul nome o cognome 
     const traccia11 = cars.filter((car) => car.model.includes("d"))
 
+    //filtro per chi ha 3 porte o meno e che abbia la potenza superiore a 120
+    const traccia12 = cars.filter((car) => car.porte <= 3 & car.power >= 120)
 
 
 
 
-    console.log("result: " + JSON.stringify(traccia11))
+    console.log("result: " + JSON.stringify(traccia12))
 
 </script>

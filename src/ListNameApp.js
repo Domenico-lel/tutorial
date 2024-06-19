@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
 import Bigger from "./components/PeopleStats";
 import PeopleStats from "./components/PeopleStats";
+import DemoUseEffect from "./components/DemoUseEffect";
 
 
 
@@ -33,7 +34,15 @@ function ListNameApp() {
             surname: "Verdi",
             date: "1986",
             gender: "T",
-            userName: "GiovannaVerdi98"
+            userName: "GiovannaVerdi63"
+        },
+        {
+            id: "4",
+            name: "Ivana",
+            surname: "Alfredi",
+            date: "1999",
+            gender: "NB",
+            userName: "IvanaAlfredi21"
         }
     ])
 
@@ -119,6 +128,8 @@ function ListNameApp() {
         <PeopleStats
             persons={items}
         />
+
+        <DemoUseEffect />   
     </div>
 
 }

@@ -29,8 +29,8 @@ function PeopleStats(
 
   const maleCount = persons.filter((person) => person.gender == "M").length
   const femaleCount = persons.filter((person) => person.gender == "F").length
-  const otherCount = persons.filter((person) => person.gender == !["M", "F"]).length
-
+  const otherCount = persons.filter((person) => !["M", "F", "Non disp"].includes(person.gender)).length
+  //const otherCountNew = persons.filter((person) => person.gender.includes("M") & person.gender.includes("F") & person.gender.includes("N")).length
 
   return <div className="card mt-3">
     <div className="text-center">

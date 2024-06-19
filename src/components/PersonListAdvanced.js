@@ -62,7 +62,7 @@ function PersonListAdvanced(
           return <div className="col" key={people.id}>
             <div className="card">
               <div className="text-center" >
-                <img className="pt-2" width="100" src="https://avatar.iran.liara.run/public" />
+                <img className="pt-2" width="100" src="https://api.dicebear.com/9.x/micah/svg?seed=Oliver&flip=true" alt="avatar"/>
               </div>
               <div className="card-body">
                 <h5 className="card-title">{people.name} {people.surname}</h5>
