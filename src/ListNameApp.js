@@ -30,11 +30,11 @@ function ListNameApp() {
         },
         {
             id: "3",
-            name: "Giovanna",
+            name: "Armando",
             surname: "Verdi",
             date: "1986",
             gender: "T",
-            userName: "GiovannaVerdi63"
+            userName: "ArmandoVerdi63"
         },
         {
             id: "4",
@@ -46,21 +46,21 @@ function ListNameApp() {
         }
     ])
 
-    const [displayItems, setDisplayItems] = useState(items)
+    const [searchWords, setSearchWords] = useState("")
 
 
 
     // Funzione per gestire l'aggiunta di una nuova persona all'elenco
-    const handleNewList = (newPersonToAdd) => {
+    const handleNewPerson = (newPersonToAdd) => {
 
         var itemscopy = items.slice()
 
-        // assegno l'id alla nuova persona che andrò ad aggiungere
+        // genera l'id in base alla posizione in cui si dovrà trovare (il nuovo elemento) nell'array
         newPersonToAdd.id = items.length + 1;
         // aggiunge la nuova persona all' array 
         itemscopy.push(newPersonToAdd);
         setItems(itemscopy)
-        setDisplayItems(itemscopy)
+        //setDisplayItems(itemscopy)
     }
 
     function isPeopleMatched(item, searchWords) {
@@ -72,13 +72,8 @@ function ListNameApp() {
     const handleFilterPerson = (searchWords) => {
         const trimSearchWords = searchWords.trim()
 
-        if (trimSearchWords == "") {
-            setDisplayItems(items)
-        } else {
-            const filteredItems = items.filter((item) => isPeopleMatched(item, trimSearchWords))
-
-            setDisplayItems(filteredItems)
-        }
+        setSearchWords(trimSearchWords)
+        
     }
 
     // funzione per gestire la rimozione di una persona
@@ -87,7 +82,6 @@ function ListNameApp() {
         const index = itemscopy.findIndex(people => people.id == peopleIdToRemove)
         itemscopy.splice(index, 1)
         setItems(itemscopy)
-        setDisplayItems(itemscopy)
     }
     console.log("elenco persone in memoria: " + JSON.stringify(items))
 
@@ -109,7 +103,7 @@ function ListNameApp() {
         </div>
 
         <PersonListAdvanced
-            persons={displayItems}
+            persons={items.filter((item) => isPeopleMatched(item, searchWords))}
             onPersonDelete={
                 (peopleId) => {
                     handleDelete(peopleId)
@@ -120,7 +114,7 @@ function ListNameApp() {
         <NewPersonForm
             onNewPerson={
                 (newPerson) => {
-                    handleNewList(newPerson)
+                    handleNewPerson(newPerson)
                 }
             }
         />
@@ -129,7 +123,9 @@ function ListNameApp() {
             persons={items}
         />
 
-        <DemoUseEffect />   
+        <DemoUseEffect 
+            persons={items}
+        />   
     </div>
 
 }
