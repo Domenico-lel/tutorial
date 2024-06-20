@@ -81,6 +81,13 @@ function PersonListAdvanced(
       if (x < y) { return -1 }
       if (x > y) { return 1 }
       return 0;
+    } else if (orderPeople == "userName") {
+
+      let x = a.userName.toLowerCase()
+      let y = b.userName.toLowerCase()
+      if (x < y) { return -1 }
+      if (x > y) { return 1 }
+      return 0;
     }
   })
 
@@ -97,6 +104,7 @@ function PersonListAdvanced(
           <option value="name">Ordina Per Nome</option>
           <option value="surname">Ordina Per cognome</option>
           <option value="age">Ordina Per Età</option>
+          <option value="userName">Ordina Per userName</option>
           
         </select>
       </div>

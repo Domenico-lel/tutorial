@@ -50,7 +50,7 @@ function ListNameApp() {
             surname: "Giovinazzo",
             date: "1991",
             gender: "",
-            userName: "IvanaAlfredi21"
+            userName: "AnnaGiovinazzo21"
         }
     ])
 
