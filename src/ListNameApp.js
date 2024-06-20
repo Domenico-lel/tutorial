@@ -142,9 +142,9 @@ function ListNameApp() {
             persons={items}
         />
 
-        <DemoUseEffect 
+        {/* <DemoUseEffect 
             persons={items}
-        />   
+        />    */}
     </div>
 
 }
