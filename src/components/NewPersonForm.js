@@ -84,7 +84,7 @@ function NewPersonForm(
                         className="form-select"
                         value={gender}
                     >
-                        <option value="Default">Choose...</option>
+                        <option value="">Choose...</option>
                         <option value="M">Maschio</option>
                         <option value="F">Femmina</option>
                         <option value="T">Trans</option>

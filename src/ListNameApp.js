@@ -43,6 +43,14 @@ function ListNameApp() {
             date: "1999",
             gender: "NB",
             userName: "IvanaAlfredi21"
+        },
+        {
+            id: "5",
+            name: "Anna",
+            surname: "Giovinazzo",
+            date: "1991",
+            gender: "",
+            userName: "IvanaAlfredi21"
         }
     ])
 
@@ -85,10 +93,21 @@ function ListNameApp() {
     }
     console.log("elenco persone in memoria: " + JSON.stringify(items))
 
+    const filteredItems = items.filter((item) => isPeopleMatched(item, searchWords))
+
+    const itemsCount = filteredItems.length
+
+
+    // x risultati per la ricerca Y 
     return <div className="p-4">
         <div className="row">
             <div className="col-8">
-                {items.length} persone
+                {
+                    searchWords == "" ?
+                    <>{items.length} persone</>
+
+                    : <>{itemsCount} persone</>
+                } 
             </div>
             <div className="col-4">
                 <SearchBar
@@ -103,7 +122,7 @@ function ListNameApp() {
         </div>
 
         <PersonListAdvanced
-            persons={items.filter((item) => isPeopleMatched(item, searchWords))}
+            persons={filteredItems}
             onPersonDelete={
                 (peopleId) => {
                     handleDelete(peopleId)

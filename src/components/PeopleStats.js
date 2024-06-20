@@ -12,7 +12,9 @@ function PeopleStats(
     return getCurrentYear() - birthYear;
   }
 
+  //per ogni persona presente dentro people fai il calcolo dell'età
   var age = persons.map((people) => calculateAge(people.date))
+  //calcolo della persona più grande e più piccola
   var elder = Math.max(...age)
   var younger = Math.min(...age)
 
@@ -27,10 +29,16 @@ function PeopleStats(
 
   console.log("il primo oggetto e':" + JSON.stringify(persons))
 
-  const maleCount = persons.filter((person) => person.gender == "M").length
+  //filtro sul genere maschile
+  const males = persons.filter((person) => person.gender == "M")
+
+  const maleCount = males.length
+  //filtro sul genere femminile
   const femaleCount = persons.filter((person) => person.gender == "F").length
-  const otherCount = persons.filter((person) => !["M", "F", "Non disp"].includes(person.gender)).length
-  //const otherCountNew = persons.filter((person) => person.gender.includes("M") & person.gender.includes("F") & person.gender.includes("N")).length
+  //filtro per le persone con sesso diverso da maschio e femmina o ch non inseriscano il sesso
+  const otherCount = persons.filter((person) => !["M", "F"].includes(person.gender ) || person.gender =="").length
+  //filtro per le persone che non inseriscono il sesso
+  const nonDispCount = persons.filter((person) => person.gender == "").length
 
   return <div className="card mt-3">
     <div className="text-center">
@@ -41,15 +49,13 @@ function PeopleStats(
         <p>Numero di persone di sesso maschile: {maleCount}</p>
         <p>Numero di persone di sesso femminile: {femaleCount}</p>
         <p>Numero di persone di altri generi : {otherCount}</p>
+        <p>Numero di persone che non hanno inserito il sesso: {nonDispCount}</p>
       </div>
     </div>
   </div>
 
 
 }
-
-//aggiungere il conteggio delle persone di sesso maschile, di quello femminile e dei rimanenti
-//e rinominare bigger in PeopleStats
 
 
 export default PeopleStats;
