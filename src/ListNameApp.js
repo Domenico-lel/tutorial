@@ -147,7 +147,9 @@ function ListNameApp() {
             persons={items}
         />
 
-        <Map />    
+        <Map 
+            persons={items}
+        />    
     </div>
 
 }
