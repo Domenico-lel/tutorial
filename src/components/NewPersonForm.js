@@ -11,6 +11,7 @@ function NewPersonForm(
     const [date, setDate] = useState("")
     const [gender, setGender] = useState("")
     const [userName, setUserName] = useState("")
+    const [location, setLocation] = useState("")
 
     // Funzioni per gestire il cambiamento degli input
     const handleName = (inputName) => {
@@ -32,6 +33,7 @@ function NewPersonForm(
         setDate("")
         setGender("Default")
         setUserName("")
+        setLocation("")
     }
 
     const handleGender = (inputGender) => {
@@ -42,6 +44,11 @@ function NewPersonForm(
     const handleUserName = (inputUserName) => {
         setUserName(inputUserName)
     }
+
+    const handleLocation = (inputLocation) => {
+        setLocation(inputLocation)
+    }
+
     // Funzione per verificare se il form è valido
     const isFormValid = () => {
         return personName != "" && personSurame != "" && date != ""
@@ -101,7 +108,8 @@ function NewPersonForm(
                         id="inputData"
                         value={date}
                     />
-                </div><div className="col-md-2">
+                </div>
+                <div className="col-md-2">
                     <label htmlFor="inputUsername" className="form-label">User Name</label>
                     <input onChange={(e) => {
                         handleUserName(e.target.value)
@@ -112,6 +120,19 @@ function NewPersonForm(
                         value={userName}
                     />
                 </div>
+
+                <div className="col-md-2">
+                    <label htmlFor="inputLocation" className="form-label">Location</label>
+                    <input onChange={(e) => {
+                        handleLocation(e.target.value)
+                    }}
+                        type="text"
+                        className="form-control"
+                        id="inputLocation"
+                        value={location}
+                    />
+                </div>
+
                 <div className="col-12">
                     <button className="btn btn-primary"
                         onClick={() => {
@@ -123,7 +144,8 @@ function NewPersonForm(
                                     surname: personSurame,
                                     date: date,
                                     gender: gender,
-                                    userName: userName
+                                    userName: userName,
+                                    location: location
                                 }
                                 onNewPerson(newPerson)
                                 clearForm()

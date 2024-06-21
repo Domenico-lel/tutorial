@@ -2,9 +2,8 @@ import { useState } from "react";
 import NewPersonForm from "./components/NewPersonForm";
 import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
-import Bigger from "./components/PeopleStats";
 import PeopleStats from "./components/PeopleStats";
-import DemoUseEffect from "./components/DemoUseEffect";
+import Map from "./components/Map";
 
 
 
@@ -18,7 +17,8 @@ function ListNameApp() {
             surname: "Lella",
             date: "2003",
             gender: "M",
-            userName: "Domenico_lel"
+            userName: "Domenico_lel",
+            location: "Ginosa Marina"
         },
         {
             id: "2",
@@ -26,7 +26,8 @@ function ListNameApp() {
             surname: "Rossi",
             date: "2010",
             gender: "F",
-            userName: "GiuseppeRossi98"
+            userName: "GiuseppeRossi98",
+            location: "Milano"
         },
         {
             id: "3",
@@ -34,7 +35,8 @@ function ListNameApp() {
             surname: "Verdi",
             date: "1986",
             gender: "T",
-            userName: "ArmandoVerdi63"
+            userName: "ArmandoVerdi63",
+            location: "Roma"
         },
         {
             id: "4",
@@ -42,7 +44,8 @@ function ListNameApp() {
             surname: "Alfredi",
             date: "1999",
             gender: "NB",
-            userName: "IvanaAlfredi21"
+            userName: "IvanaAlfredi21",
+            location: "Bergamo"
         },
         {
             id: "5",
@@ -50,7 +53,8 @@ function ListNameApp() {
             surname: "Giovinazzo",
             date: "1991",
             gender: "",
-            userName: "AnnaGiovinazzo21"
+            userName: "AnnaGiovinazzo21",
+            location: "Firenze"
         }
     ])
 
@@ -60,6 +64,7 @@ function ListNameApp() {
 
     // Funzione per gestire l'aggiunta di una nuova persona all'elenco
     const handleNewPerson = (newPersonToAdd) => {
+        console.log(items)
 
         var itemscopy = items.slice()
 
@@ -142,9 +147,7 @@ function ListNameApp() {
             persons={items}
         />
 
-        {/* <DemoUseEffect 
-            persons={items}
-        />    */}
+        <Map />    
     </div>
 
 }

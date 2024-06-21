@@ -7,7 +7,7 @@ function PersonListAdvanced(
   }
 ) {
 
-  const [orderPeople, setOrderPeople] = useState("name")
+  const [orderPeople, setOrderPeople] = useState("")
 
 
   function getCurrentYear() {
@@ -130,6 +130,7 @@ function PersonListAdvanced(
                 <div className="card-body">
                   <h5 className="card-title">{people.name} {people.surname}</h5>
                   <p style={{ color: isAdult(peopleAge) ? "green" : "red" }}>{peopleAge}</p>
+                  <p>{people.location}</p>
                   <p className="card-text">{getGenderLabel(people.gender)}</p>
                   <p className="card-text">@{people.userName}</p>
                   <button
