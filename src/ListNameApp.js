@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
 import PeopleStats from "./components/PeopleStats";
 import Map from "./components/Map";
+import ModalSection from "./components/ModalSection";
 
 
 
@@ -86,7 +87,6 @@ function ListNameApp() {
         const trimSearchWords = searchWords.trim()
 
         setSearchWords(trimSearchWords)
-        
     }
 
     // funzione per gestire la rimozione di una persona
@@ -103,16 +103,18 @@ function ListNameApp() {
     const itemsCount = filteredItems.length
 
 
+
+
     // x risultati per la ricerca Y 
     return <div className="p-4">
         <div className="row">
             <div className="col-8">
                 {
                     searchWords == "" ?
-                    <>{items.length} persone</>
+                        <>{items.length} persone</>
 
-                    : <>{itemsCount} persone</>
-                } 
+                        : <>{itemsCount} persone</>
+                }
             </div>
             <div className="col-4">
                 <SearchBar
@@ -143,13 +145,26 @@ function ListNameApp() {
             }
         />
 
-        <PeopleStats
+        {/* <PeopleStats
             persons={items}
         />
 
-        <Map 
+        <Map
             persons={items}
-        />    
+        /> */}
+
+        <ModalSection
+        //registro la callback, in questo caso una funzione anonima che verra' chiamata quando si premera' il tasto
+            onModalActionClick={
+                () => {
+                    console.log("il pulsante e' stato premuto")
+                }
+            }
+            modalTitle="Titolo personalizzato"
+            buttonLabel="Bottone primario personalizzato"
+            modalActionButtonLabel="Salva modal"
+            modalBody="ciao"
+        />
     </div>
 
 }

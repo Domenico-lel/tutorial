@@ -35,6 +35,23 @@ function PersonListAdvanced(
     }
   }
 
+  function getGenderImage(gender) {
+    switch (gender) {
+      case "F":
+        return "https://api.dicebear.com/9.x/micah/svg?seed=Baby&flip=true"
+      case "M":
+        return "https://api.dicebear.com/9.x/micah/svg?seed=Oliver&flip=true"
+      case "T":
+        return "https://api.dicebear.com/9.x/micah/svg?seed=Lucky&flip=true"
+      case "NB":
+        return "https://api.dicebear.com/9.x/miniavs/svg?seed=Ginger&flip=true"
+
+      default:
+        return "https://api.dicebear.com/9.x/micah/svg?seed=Bandit&flip=true"
+        break;
+    }
+  }
+
   function isListEmpty() {
     return persons.length == 0
   }
@@ -125,7 +142,7 @@ function PersonListAdvanced(
             return <div className="col" key={people.id}>
               <div className="card">
                 <div className="text-center" >
-                  <img className="pt-2" width="100" src="https://api.dicebear.com/9.x/micah/svg?seed=Oliver&flip=true" alt="avatar" />
+                  <img className="pt-2" width="100" src={getGenderImage(people.gender)} alt="avatar" />
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">{people.name} {people.surname}</h5>
