@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ModalSection from "./ModalSection";
 
 function NewPersonForm(
     {
@@ -134,28 +135,32 @@ function NewPersonForm(
                 </div>
 
                 <div className="col-12">
-                    <button className="btn btn-primary"
-                        onClick={() => {
-                            const condizione = isFormValid()
 
-                            if (isFormValid()) {
-                                const newPerson = {
-                                    name: personName,
-                                    surname: personSurame,
-                                    date: date,
-                                    gender: gender,
-                                    userName: userName,
-                                    location: location
+                    <ModalSection
+                        //registro la callback, in questo caso una funzione anonima che verra' chiamata quando si premera' il tasto
+                        onModalActionClick={
+                            () => {
+
+                                if (isFormValid()) {
+                                    const newPerson = {
+                                        name: personName,
+                                        surname: personSurame,
+                                        date: date,
+                                        gender: gender,
+                                        userName: userName,
+                                        location: location
+                                    }
+                                    onNewPerson(newPerson)
+                                    clearForm()
                                 }
-                                onNewPerson(newPerson)
-                                clearForm()
-                            } else {
-                                alert("alcuni campi non sono stati inseriti")
                             }
-
-
-                        }}
-                    >Aggiungi</button>
+                        }
+                        buttonClass="btn btn-primary"
+                        modalTitle={isFormValid() == false ? "ERRORE!" : "Stai per aggiungere una persona."}
+                        buttonLabel="Aggiungi"
+                        modalActionButtonLabel={isFormValid() == false ? "Ok" : "Aggiungi"}
+                        modalBody={isFormValid() == false ? "Compila tutti i campi prima di aggiungere una persona." : "La persona verrà aggiunta!"}
+                    />
                 </div>
             </div>
         </div>

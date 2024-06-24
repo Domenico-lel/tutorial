@@ -23,11 +23,11 @@ function ListNameApp() {
         },
         {
             id: "2",
-            name: "Giuseppe",
+            name: "Giuseppina",
             surname: "Rossi",
             date: "2010",
             gender: "F",
-            userName: "GiuseppeRossi98",
+            userName: "GiuseppinaRossi98",
             location: "Milano"
         },
         {
@@ -145,25 +145,12 @@ function ListNameApp() {
             }
         />
 
-        {/* <PeopleStats
+        <PeopleStats
             persons={items}
         />
 
         <Map
             persons={items}
-        /> */}
-
-        <ModalSection
-        //registro la callback, in questo caso una funzione anonima che verra' chiamata quando si premera' il tasto
-            onModalActionClick={
-                () => {
-                    console.log("il pulsante e' stato premuto")
-                }
-            }
-            modalTitle="Titolo personalizzato"
-            buttonLabel="Bottone primario personalizzato"
-            modalActionButtonLabel="Salva modal"
-            modalBody="ciao"
         />
     </div>
 

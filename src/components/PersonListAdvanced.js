@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ModalSection from "./ModalSection";
 
 function PersonListAdvanced(
   {
@@ -150,11 +151,22 @@ function PersonListAdvanced(
                   <p>{people.location}</p>
                   <p className="card-text">{getGenderLabel(people.gender)}</p>
                   <p className="card-text">@{people.userName}</p>
-                  <button
-                    type="button"
-                    className="btn btn-danger btn-sm"
-                    onClick={() => handleDelete(people.id)}
-                  >Delete</button>
+
+                  <ModalSection
+                    //registro la callback, in questo caso una funzione anonima che verra' chiamata quando si premera' il tasto
+                    onModalActionClick={
+                      () => {
+                        handleDelete(people.id)
+                      }
+                    }
+                    modalId={people.id}
+                    buttonClass="btn-danger"
+                    modalTitle="Sei sicuro di voler eliminare l'utente?"
+                    buttonLabel="Delete"
+                    modalActionButtonLabel="Elimina definitivamente"
+                    modalBody={"l' utente " + people.name + " " + people.surname + " verra' eliminato!"}
+                  />
+                  
                 </div>
                 <div className="card-footer">
                   <small className="text-body-secondary">{people.date}</small>
