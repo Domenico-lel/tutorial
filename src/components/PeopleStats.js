@@ -1,4 +1,4 @@
-import Statistic from "./Statistic";
+import ProgressBar from "./ProgressBar";
 
 function PeopleStats(
   {
@@ -35,10 +35,19 @@ function PeopleStats(
   const maleCount = males.length
   //filtro sul genere femminile
   const femaleCount = persons.filter((person) => person.gender == "F").length
-  //filtro per le persone con sesso diverso da maschio e femmina o ch non inseriscano il sesso
+  //filtro per le persone con sesso diverso da maschio e femmina o che non inseriscano il sesso
   const otherCount = persons.filter((person) => !["M", "F"].includes(person.gender) || person.gender == "").length
   //filtro per le persone che non inseriscono il sesso
   const nonDispCount = persons.filter((person) => person.gender == "").length
+
+  // Calcolo del numero totale delle persone
+  const totalCount = persons.length
+
+  // Calcolo delle percentuali
+  const malePercentage = totalCount ? (maleCount / totalCount) * 100 : 0
+  const femalePercentage = totalCount ? (femaleCount / totalCount) * 100 : 0
+  const otherPercentage = totalCount ? (nonDispCount / totalCount) * 100 : 0
+  const notSetGener = totalCount ? (otherCount / totalCount) * 100 : 0
 
 
   return <div className="card mt-3">
@@ -58,8 +67,29 @@ function PeopleStats(
               <p>Numero di persone che non hanno inserito il sesso: {nonDispCount}</p></>
         }
 
-        <Statistic
-          persons={persons}
+
+        <ProgressBar
+          progressPercentage={malePercentage.toFixed()}
+          lengthBar={malePercentage}
+          label={"Uomini:"}
+        />
+        <ProgressBar
+          progressPercentage={femalePercentage.toFixed()}
+          colorProgres={"bg-warning text-dark"}
+          lengthBar={femalePercentage}
+          label={"Donne: "}
+        />
+        <ProgressBar
+          progressPercentage={notSetGener.toFixed()}
+          colorProgres={"bg-danger text-dark"}
+          lengthBar={notSetGener}
+          label={"Altri generi:"}
+        />
+        <ProgressBar
+          progressPercentage={otherPercentage.toFixed()}
+          colorProgres={"bg-success"}
+          lengthBar={notSetGener}
+          label={"Non hanno inserito il sesso:"}
         />
 
       </div>
