@@ -6,7 +6,7 @@ function Map(
     persons = []
   }
 ) {
-  const position = [40.421311, 16.873999]
+  const position = [41.8933203, 12.4829321]
 
   const [locations, setLocations] = useState([
     {
@@ -64,7 +64,7 @@ function Map(
 
   return <div className="card mt-3">
     <div className="card-body h-100">
-      <MapContainer style={{ height: 400 }} center={position} zoom={6} scrollWheelZoom={false}>
+      <MapContainer style={{ height: 400 }} center={position} zoom={5} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

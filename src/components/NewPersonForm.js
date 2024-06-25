@@ -159,7 +159,7 @@ function NewPersonForm(
                         modalTitle={isFormValid() == false ? "ERRORE!" : "Stai per aggiungere una persona."}
                         buttonLabel="Aggiungi"
                         modalActionButtonLabel={isFormValid() == false ? "Ok" : "Aggiungi"}
-                        modalBody={isFormValid() == false ? "Compila tutti i campi prima di aggiungere una persona." : "La persona verrà aggiunta!"}
+                        modalBody={isFormValid() == false ? "Compila tutti i campi prima di aggiungere una persona." : "Sei sicuro di voler aggiungere una nuova persona?"}
                     />
                 </div>
             </div>

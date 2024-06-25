@@ -1,3 +1,5 @@
+import Statistic from "./Statistic";
+
 function PeopleStats(
   {
     persons = []
@@ -56,6 +58,9 @@ function PeopleStats(
               <p>Numero di persone che non hanno inserito il sesso: {nonDispCount}</p></>
         }
 
+        <Statistic
+          persons={persons}
+        />
 
       </div>
     </div>

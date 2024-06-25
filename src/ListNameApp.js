@@ -4,7 +4,7 @@ import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
 import PeopleStats from "./components/PeopleStats";
 import Map from "./components/Map";
-import ModalSection from "./components/ModalSection";
+import Statistic from "./components/Statistic";
 
 
 
