@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import PersonListAdvanced from "./components/PersonListAdvanced";
 import PeopleStats from "./components/PeopleStats";
 import Map from "./components/Map";
+import MultipleBar from "./components/MultipleBar";
 
 
 
@@ -151,6 +152,8 @@ function ListNameApp() {
         <Map
             persons={items}
         />
+
+        <MultipleBar/>
     </div>
 
 }

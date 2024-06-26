@@ -1,4 +1,5 @@
 import ProgressBar from "./ProgressBar";
+import MultipleBar from "./MultipleBar";
 
 function PeopleStats(
   {
